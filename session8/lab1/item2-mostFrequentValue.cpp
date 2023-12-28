@@ -14,18 +14,50 @@ int main(){
     }
 
     int max_frequency = 1;
-    int most_frequent = arr[0];
-    for (int i = 0; i < n; i++){
+    int index = 0;
+    int freq_length = 0;
+    int freq[1000];
+
+    //while length of freq_array < length of original array
+    while (freq_length < n){
+        //set counter & index of next item to iterate from
         int counter = 1;
-        for (int j = i+1; j < n; j++) {
-            if (arr[j] == arr[i]){
+        int inner_index = index + 1;
+
+        //while the inner index is inbound
+        while (inner_index < n){
+            //if value duplicated
+            if (arr[inner_index] == arr[index]){
+                //then push all items up 1 pos towards the start
+                for (int i = inner_index; i < n; i++){
+                    arr[i] = arr[i+1];
+                }
+                //then decrease total number of items
+                n--;
+                //and increase the counter
                 counter++;
             }
-        };
-        if (counter > max_frequency){
+            //always increase the index
+            inner_index++;
+        }
+
+        //add item to the freq array
+        freq_length++;
+        freq[freq_length-1] = counter;
+        
+        //if the counter is bigger than the current max freq
+        if (counter > max_frequency) {
             max_frequency = counter;
-            most_frequent = arr[i];
+        }
+
+        index++;
+    }
+    
+    printf("Most frequent item(s): ");
+
+    for (int i = 0; i < freq_length - 1; i++){
+        if (freq[i] == max_frequency){
+            printf("%d ", arr[i]);
         }
     }
-    printf("Most frequent item: %d", most_frequent);
 }
