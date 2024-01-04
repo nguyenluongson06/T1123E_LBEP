@@ -55,7 +55,7 @@ void sortByScore(Student arr[], int size){
 
 int main(){
     Student testStudents[] = {
-        {"Emma", 8.9},
+        {"Emma", 8.5},
         {"Liam", 9.2},
         {"Olivia", 7.8},
         {"Noah", 9.5},
@@ -64,8 +64,19 @@ int main(){
         {"Sophia", 8.3},
         {"James", 8.8},
         {"Isabella", 9.4},
-        {"Benjamin", 7.6}
+        {"Benjamin", 7.6},
+        {"Mia", 8.9},
+        {"Elijah", 9.0},
+        {"Amelia", 7.5},
+        {"Jackson", 8.2},
+        {"Avery", 9.3},
+        {"Lucas", 7.7},
+        {"Harper", 8.6},
+        {"Logan", 9.7},
+        {"Evelyn", 7.1},
+        {"Jack", 8.0}
     };
+
 
     sortByName(testStudents, 10);
 
